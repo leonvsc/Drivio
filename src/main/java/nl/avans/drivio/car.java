@@ -1,5 +1,6 @@
 package nl.avans.drivio;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.Scanner;
 
@@ -10,6 +11,18 @@ public class car {
         for (int i=0; i < typeOfCar.length; i++) {
             choice.add(typeOfCar[i]);
         }
+        JFrame usersChoice = new JFrame("Kies aandrijving");
+        JPanel panel = new JPanel();
+        JButton button = new JButton();
+        button.setText("Bevestig");
+        usersChoice.setSize(450, 475);
+        usersChoice.setLocation(120, 60);
+        panel.add(choice);
+        panel.add(button);
+        usersChoice.add(panel);
+        usersChoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        usersChoice.setVisible(true);
+        //De choice kan in main opgeroepen worden via frame, hier kan een keuze in gemaakt worden
         int choice1 = 0; //TODO: Deze vervangen met de keuze van de klant
         System.out.println(typeOfCar[choice1]);
         // TODO: Ervoor zorgen dat de keuze hierna in de DB opgeslagen wordt
