@@ -1,21 +1,43 @@
 package nl.avans.drivio.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class accountModel {
-    private String AccountId;
+    @Id
+    @SequenceGenerator(
+            name = "account_sequence",
+            sequenceName = "account_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "account_sequence"
+    )
+    private Long AccountId;
     private String Email;
     private String Password;
 
-    public accountModel(String accountId, String email, String password) {
+    public accountModel() {
+    }
+
+    public accountModel(Long accountId, String email, String password) {
         this.AccountId = accountId;
         this.Email = email;
         this.Password = password;
     }
 
-    public String getAccountId() {
+    public accountModel(String email, String password) {
+        Email = email;
+        Password = password;
+    }
+
+    public Long getAccountId() {
         return AccountId;
     }
 
-    public void setAccountId(String accountId) {
+    public void setAccountId(Long accountId) {
         this.AccountId = accountId;
     }
 
@@ -33,5 +55,14 @@ public class accountModel {
 
     public void setPassword(String password) {
         this.Password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "accountModel{" +
+                "AccountId='" + AccountId + '\'' +
+                ", Email='" + Email + '\'' +
+                ", Password='" + Password + '\'' +
+                '}';
     }
 }
