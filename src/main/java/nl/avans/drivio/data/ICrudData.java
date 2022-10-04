@@ -1,10 +1,16 @@
 package nl.avans.drivio.data;
 
-public interface ICrudData {
-    public void getAll();
-    public void getById(Object id);
-    public void create (Object id);
-    public void update (Object id, Object data);
-    public void delete (Object id);
-    public void dataToModel(Object object); // TODO: Checken of dit klopt.
+import nl.avans.drivio.model.accountModel;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface ICrudData extends JpaRepository<accountModel, Integer> {
+
+    @Query("SELECT s FROM accountModel s WHERE s.Email = ?1")
+    Optional<accountModel> findaccountModelByEmail(String Email);
+
 }

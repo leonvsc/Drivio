@@ -15,14 +15,14 @@ public class accountModel {
             strategy = GenerationType.SEQUENCE,
             generator = "account_sequence"
     )
-    private Long AccountId;
+    private int AccountId;
     private String Email;
     private String Password;
 
     public accountModel() {
     }
 
-    public accountModel(Long accountId, String email, String password) {
+    public accountModel(int accountId, String email, String password) {
         this.AccountId = accountId;
         this.Email = email;
         this.Password = password;
@@ -33,11 +33,11 @@ public class accountModel {
         Password = password;
     }
 
-    public Long getAccountId() {
+    public int getAccountId() {
         return AccountId;
     }
 
-    public void setAccountId(Long accountId) {
+    public void setAccountId(int accountId) {
         this.AccountId = accountId;
     }
 

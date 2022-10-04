@@ -3,9 +3,7 @@ package nl.avans.drivio.controller;
 import nl.avans.drivio.model.accountModel;
 import nl.avans.drivio.service.accountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +21,15 @@ public class accountController {
     @GetMapping
     public List<accountModel> getAccounts() {
         return accountService.getAccounts();
+    }
+
+    @PostMapping
+    public void createAccount(@RequestBody accountModel account) {
+        accountService.createAccount(account);
+    }
+
+    @DeleteMapping(path = "{accountId}")
+    public void deleteAccount(@PathVariable("accountId") int accountId) {
+        accountService.deleteAccount(accountId);
     }
 }
