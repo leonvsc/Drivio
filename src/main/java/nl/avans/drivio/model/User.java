@@ -2,16 +2,16 @@ package nl.avans.drivio.model;
 
 import java.util.Date;
 
-public class userModel {
+public class User {
     private String UserId;
     private String FirstName;
     private String LastName;
     private String Address;
     private Date DateOfBirth;
     private String IBAN;
-    private accountModel Account;
+    private nl.avans.drivio.model.Account Account;
 
-    public userModel(String userId, String firstName, String lastName, String address, Date dateOfBirth, String IBAN, accountModel account) {
+    public User(String userId, String firstName, String lastName, String address, Date dateOfBirth, String IBAN, nl.avans.drivio.model.Account account) {
         this.UserId = userId;
         this.FirstName = firstName;
         this.LastName = lastName;
@@ -69,11 +69,11 @@ public class userModel {
         this.IBAN = IBAN;
     }
 
-    public accountModel getAccount() {
+    public nl.avans.drivio.model.Account getAccount() {
         return Account;
     }
 
-    public void setAccount(accountModel accountId) {
+    public void setAccount(nl.avans.drivio.model.Account accountId) {
         Account = accountId;
     }
 }

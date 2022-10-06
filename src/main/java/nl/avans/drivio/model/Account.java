@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class accountModel {
+public class Account {
     @Id
     @SequenceGenerator(
             name = "account_sequence",
@@ -19,16 +19,16 @@ public class accountModel {
     private String Email;
     private String Password;
 
-    public accountModel() {
+    public Account() {
     }
 
-    public accountModel(int accountId, String email, String password) {
+    public Account(int accountId, String email, String password) {
         this.AccountId = accountId;
         this.Email = email;
         this.Password = password;
     }
 
-    public accountModel(String email, String password) {
+    public Account(String email, String password) {
         Email = email;
         Password = password;
     }

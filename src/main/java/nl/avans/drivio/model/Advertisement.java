@@ -1,15 +1,15 @@
 package nl.avans.drivio.model;
 
-public class advertisementModel {
+public class Advertisement {
     private String AdvertisementId;
     private String Name;
     private double Price;
     private String Description; // TODO: Ander datatype zoeken.
     private String Pictures; // TODO: Juiste datatype zoeken.
-    private carModel Car;
-    private userModel Owner; // TODO: Andere naamgeving?
+    private nl.avans.drivio.model.Car Car;
+    private User Owner; // TODO: Andere naamgeving?
 
-    public advertisementModel(String advertisementId, String name, double price, String description, String pictures, carModel car, userModel owner) {
+    public Advertisement(String advertisementId, String name, double price, String description, String pictures, nl.avans.drivio.model.Car car, User owner) {
         this.AdvertisementId = advertisementId;
         this.Name = name;
         this.Price = price;
@@ -59,19 +59,19 @@ public class advertisementModel {
         this.Pictures = pictures;
     }
 
-    public carModel getCar() {
+    public nl.avans.drivio.model.Car getCar() {
         return Car;
     }
 
-    public void setCar(carModel car) {
+    public void setCar(nl.avans.drivio.model.Car car) {
         this.Car = car;
     }
 
-    public userModel getOwner() {
+    public User getOwner() {
         return Owner;
     }
 
-    public void setOwner(userModel owner) {
+    public void setOwner(User owner) {
         this.Owner = owner;
     }
 }

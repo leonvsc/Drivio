@@ -1,12 +1,12 @@
 package nl.avans.drivio.model;
 
-public class statisticModel {
+public class Statistic {
     private String StatisticId;
     private String Name;
     private String Value;
-    private userModel User;
+    private nl.avans.drivio.model.User User;
 
-    public statisticModel(String statisticId, String name, String value, userModel user) {
+    public Statistic(String statisticId, String name, String value, nl.avans.drivio.model.User user) {
         this.StatisticId = statisticId;
         this.Name = name;
         this.Value = value;
@@ -37,11 +37,11 @@ public class statisticModel {
         this.Value = value;
     }
 
-    public userModel getUser() {
+    public nl.avans.drivio.model.User getUser() {
         return User;
     }
 
-    public void setUser(userModel user) {
+    public void setUser(nl.avans.drivio.model.User user) {
         this.User = user;
     }
 }

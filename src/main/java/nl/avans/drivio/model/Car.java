@@ -1,6 +1,6 @@
 package nl.avans.drivio.model;
 
-public class carModel {
+public class Car {
     private String CarId;
     private String Brand;
     private String Model;
@@ -9,10 +9,10 @@ public class carModel {
     private String NumberPlate;
     private String CarType;
     private String GearBox;
-    private userModel Owner;
-    private userModel Renter;
+    private User Owner;
+    private User Renter;
 
-    public carModel(String carId, String brand, String model, String fuelType, String buildYear, String numberPlate, String carType, String gearBox, userModel owner, userModel renter) {
+    public Car(String carId, String brand, String model, String fuelType, String buildYear, String numberPlate, String carType, String gearBox, User owner, User renter) {
         this.CarId = carId;
         this.Brand = brand;
         this.Model = model;
@@ -90,19 +90,19 @@ public class carModel {
         this.GearBox = gearBox;
     }
 
-    public userModel getOwner() {
+    public User getOwner() {
         return Owner;
     }
 
-    public void setOwner(userModel owner) {
+    public void setOwner(User owner) {
         Owner = owner;
     }
 
-    public userModel getRenter() {
+    public User getRenter() {
         return Renter;
     }
 
-    public void setRenter(userModel renter) {
+    public void setRenter(User renter) {
         Renter = renter;
     }
 }
