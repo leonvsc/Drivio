@@ -1,46 +1,50 @@
 package nl.avans.drivio.model;
 
-public class Advertisement {
-    private String AdvertisementId;
-    private String Name;
-    private double Price;
-    private String Description; // TODO: Ander datatype zoeken.
-    private String Pictures; // TODO: Juiste datatype zoeken.
-    private nl.avans.drivio.model.Car Car;
-    private User Owner; // TODO: Andere naamgeving?
+import javax.persistence.*;
+import java.time.LocalDate;
 
-    public Advertisement(String advertisementId, String name, double price, String description, String pictures, nl.avans.drivio.model.Car car, User owner) {
-        this.AdvertisementId = advertisementId;
-        this.Name = name;
-        this.Price = price;
-        this.Description = description;
-        this.Pictures = pictures;
-        this.Car = car;
-        this.Owner = owner;
+@Entity
+@Table
+public class Advertisement {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int AdvertisementId;
+    private String Title;
+    private String Description;
+    private double Price;
+    private LocalDate StartDate;
+    private LocalDate EndDate;
+//    private Car CarObject;
+//    private Car Owner;
+//    private Car Pictures;
+
+    public Advertisement(String title, String description, double price, LocalDate startDate, LocalDate endDate) {
+        Title = title;
+        Description = description;
+        Price = price;
+        StartDate = startDate;
+        EndDate = endDate;
     }
 
-    public String getAdvertisementId() {
+    public Advertisement() {
+
+    }
+
+    public int getAdvertisementId() {
         return AdvertisementId;
     }
 
-    public void setAdvertisementId(String advertisementId) {
-        this.AdvertisementId = advertisementId;
+    public void setAdvertisementId(int advertisementId) {
+        AdvertisementId = advertisementId;
     }
 
-    public String getName() {
-        return Name;
+    public String getTitle() {
+        return Title;
     }
 
-    public void setName(String name) {
-        this.Name = name;
-    }
-
-    public double getPrice() {
-        return Price;
-    }
-
-    public void setPrice(double price) {
-        this.Price = price;
+    public void setTitle(String title) {
+        Title = title;
     }
 
     public String getDescription() {
@@ -48,30 +52,42 @@ public class Advertisement {
     }
 
     public void setDescription(String description) {
-        this.Description = description;
+        Description = description;
     }
 
-    public String getPictures() {
-        return Pictures;
+    public double getPrice() {
+        return Price;
     }
 
-    public void setPictures(String pictures) {
-        this.Pictures = pictures;
+    public void setPrice(double price) {
+        Price = price;
     }
 
-    public nl.avans.drivio.model.Car getCar() {
-        return Car;
+    public LocalDate getStartDate() {
+        return StartDate;
     }
 
-    public void setCar(nl.avans.drivio.model.Car car) {
-        this.Car = car;
+    public void setStartDate(LocalDate startDate) {
+        StartDate = startDate;
     }
 
-    public User getOwner() {
-        return Owner;
+    public LocalDate getEndDate() {
+        return EndDate;
     }
 
-    public void setOwner(User owner) {
-        this.Owner = owner;
+    public void setEndDate(LocalDate endDate) {
+        EndDate = endDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Advertisement{" +
+                "AdvertisementId=" + AdvertisementId +
+                ", Title='" + Title + '\'' +
+                ", Description='" + Description + '\'' +
+                ", Price=" + Price +
+                ", StartDate=" + StartDate +
+                ", EndDate=" + EndDate +
+                '}';
     }
 }
