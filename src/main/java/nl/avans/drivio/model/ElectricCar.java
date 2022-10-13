@@ -7,7 +7,7 @@ public class ElectricCar extends Car {
     int chargeSpeed;
     int fastChargeSpeed;
 
-    public ElectricCar(int carId, String brand, String model, String fuelType, String buildYear, String numberPlate, String carType, String gearBox, User owner, User renter, double whPerKm, String chargeConnection, int range, int chargeSpeed, int fastChargeSpeed) {
+    public ElectricCar(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User owner, User renter, double whPerKm, String chargeConnection, int range, int chargeSpeed, int fastChargeSpeed) {
         super(carId, brand, model, fuelType, buildYear, numberPlate, carType, gearBox, owner, renter);
         this.whPerKm = whPerKm;
         this.chargeConnection = chargeConnection;

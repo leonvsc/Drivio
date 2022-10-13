@@ -19,7 +19,7 @@ public class Car {
     private String Brand;
     private String Model;
     private String FuelType;
-    private String BuildYear;
+    private int BuildYear;
     private String NumberPlate;
     private String CarType;
     private String GearBox;
@@ -29,7 +29,7 @@ public class Car {
     public Car() {
     }
 
-    public Car(int carId, String brand, String model, String fuelType, String buildYear, String numberPlate, String carType, String gearBox, User owner, User renter) {
+    public Car(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User owner, User renter) {
         this.CarId = carId;
         this.Brand = brand;
         this.Model = model;
@@ -74,11 +74,11 @@ public class Car {
         this.FuelType = fuelType;
     }
 
-    public String getBuildYear() {
+    public int getBuildYear() {
         return BuildYear;
     }
 
-    public void setBuildYear(String buildYear) {
+    public void setBuildYear(int buildYear) {
         this.BuildYear = buildYear;
     }
 
