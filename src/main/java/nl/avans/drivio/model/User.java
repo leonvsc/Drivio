@@ -1,79 +1,103 @@
 package nl.avans.drivio.model;
 
-import java.util.Date;
+import javax.persistence.*;
+//import java.awt.image.BufferedImage;
 
+@Entity
+@Table(name = "users")
 public class User {
-    private String UserId;
-    private String FirstName;
-    private String LastName;
-    private String Address;
-    private Date DateOfBirth;
-    private String IBAN;
-    private nl.avans.drivio.model.Account Account;
 
-    public User(String userId, String firstName, String lastName, String address, Date dateOfBirth, String IBAN, nl.avans.drivio.model.Account account) {
-        this.UserId = userId;
-        this.FirstName = firstName;
-        this.LastName = lastName;
-        this.Address = address;
-        this.DateOfBirth = dateOfBirth;
-        this.IBAN = IBAN;
-        this.Account = account;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)  // For mysql this may be IDENTITY!
+    @Column(name = "user_id")
+    private Integer userId;
+
+    @Column(name = "first_name", nullable = false, length = 200)
+    private String firstName;
+
+    @Column(name = "last_name", nullable = false, length = 200)
+    private String lastName;
+
+    @Column(name = "city", nullable = false, length = 200)
+    private String city;
+
+    @Column(name = "phone", nullable = false)
+    private long phone;
+
+    @Column(name = "email", nullable = false)
+    private String email;
+
+    @Column(name = "password", nullable = false, length = 150)
+    private String password;
+
+
+//    private BufferedImage myPicture;      (Period 2)
+//    private String aboutMe;               (Period 2)
+//    private BufferedImage driversLicense; (Period 2)
+//    private boolean hasDriversLicense;    (Period 2)
+
+
+    public User(Integer userId, String firstName, String lastName, String city, long phone, String email, String password) {
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.city = city;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
     }
 
-    public String getUserId() {
-        return UserId;
-    }
+    public User() {}   // Could be protected!
 
-    public void setUserId(String userId) {
-        this.UserId = userId;
+    public Integer getUserId() {
+        return userId;
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        this.FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        this.LastName = lastName;
+        this.lastName = lastName;
     }
 
-    public String getAddress() {
-        return Address;
+    public String getCity() {
+        return city;
     }
 
-    public void setAddress(String address) {
-        this.Address = address;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public Date getDateOfBirth() {
-        return DateOfBirth;
+    public long getPhone() {
+        return phone;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.DateOfBirth = dateOfBirth;
+    public void setPhone(long phone) {
+        this.phone = phone;
     }
 
-    public String getIBAN() {
-        return IBAN;
+    public String getEmail() {
+        return email;
     }
 
-    public void setIBAN(String IBAN) {
-        this.IBAN = IBAN;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public nl.avans.drivio.model.Account getAccount() {
-        return Account;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAccount(nl.avans.drivio.model.Account accountId) {
-        Account = accountId;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
