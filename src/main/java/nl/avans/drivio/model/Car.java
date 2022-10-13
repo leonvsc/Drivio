@@ -1,18 +1,35 @@
 package nl.avans.drivio.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Car {
-    private String CarId;
+    @Id
+    @SequenceGenerator(
+            name = "car_sequence",
+            sequenceName = "car_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "car_sequence"
+    )
+    private int CarId;
     private String Brand;
     private String Model;
     private String FuelType;
-    private String BuildYear;
+    private int BuildYear;
     private String NumberPlate;
     private String CarType;
     private String GearBox;
-    private User Owner;
-    private User Renter;
+//    private User Owner;
+//    private User Renter;
 
-    public Car(String carId, String brand, String model, String fuelType, String buildYear, String numberPlate, String carType, String gearBox, User owner, User renter) {
+    public Car() {
+    }
+
+    public Car(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User owner, User renter) {
         this.CarId = carId;
         this.Brand = brand;
         this.Model = model;
@@ -21,16 +38,15 @@ public class Car {
         this.NumberPlate = numberPlate;
         this.CarType = carType;
         this.GearBox = gearBox;
-        this.Owner = owner;
-        this.Renter = renter;
+//        this.Owner = owner;
+//        this.Renter = renter;
 
     }
-
-    public String getCarId() {
+    public int getCarId() {
         return CarId;
     }
 
-    public void setCarId(String carId) {
+    public void setCarId(int carId) {
         this.CarId = carId;
     }
 
@@ -58,11 +74,11 @@ public class Car {
         this.FuelType = fuelType;
     }
 
-    public String getBuildYear() {
+    public int getBuildYear() {
         return BuildYear;
     }
 
-    public void setBuildYear(String buildYear) {
+    public void setBuildYear(int buildYear) {
         this.BuildYear = buildYear;
     }
 
@@ -90,19 +106,33 @@ public class Car {
         this.GearBox = gearBox;
     }
 
-    public User getOwner() {
-        return Owner;
-    }
+//    public User getOwner() {
+//        return Owner;
+//    }
+//
+//    public void setOwner(User owner) {
+//        Owner = owner;
+//    }
+//
+//    public User getRenter() {
+//        return Renter;
+//    }
+//
+//    public void setRenter(User renter) {
+//        Renter = renter;
+//    }
 
-    public void setOwner(User owner) {
-        Owner = owner;
-    }
-
-    public User getRenter() {
-        return Renter;
-    }
-
-    public void setRenter(User renter) {
-        Renter = renter;
+    @Override
+    public String toString() {
+        return "Car{" +
+                "CarId=" + CarId +
+                ", Brand='" + Brand + '\'' +
+                ", Model='" + Model + '\'' +
+                ", FuelType='" + FuelType + '\'' +
+                ", BuildYear='" + BuildYear + '\'' +
+                ", NumberPlate='" + NumberPlate + '\'' +
+                ", CarType='" + CarType + '\'' +
+                ", GearBox='" + GearBox + '\'' +
+                '}';
     }
 }
