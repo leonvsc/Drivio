@@ -15,16 +15,17 @@ public class Advertisement {
     private double Price;
     private LocalDate StartDate;
     private LocalDate EndDate;
-//    private Car CarObject;
-//    private Car Owner;
-//    private Car Pictures;
+    @ManyToOne
+    @JoinColumn
+    private User user;
 
-    public Advertisement(String title, String description, double price, LocalDate startDate, LocalDate endDate) {
+    public Advertisement(String title, String description, double price, LocalDate startDate, LocalDate endDate, User user) {
         Title = title;
         Description = description;
         Price = price;
         StartDate = startDate;
         EndDate = endDate;
+        this.user = user;
     }
 
     public Advertisement() {
@@ -79,6 +80,14 @@ public class Advertisement {
         EndDate = endDate;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User User) {
+        this.user = User;
+    }
+
     @Override
     public String toString() {
         return "Advertisement{" +
@@ -88,6 +97,7 @@ public class Advertisement {
                 ", Price=" + Price +
                 ", StartDate=" + StartDate +
                 ", EndDate=" + EndDate +
+                ", user=" + user +
                 '}';
     }
 }
