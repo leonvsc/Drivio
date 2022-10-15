@@ -1,14 +1,13 @@
 package nl.avans.drivio.model;
 
 import javax.persistence.*;
-//import java.awt.image.BufferedImage;
 
 @Entity
 @Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)  // For mysql this may be IDENTITY!
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private Integer userId;
 
@@ -21,14 +20,15 @@ public class User {
     @Column(name = "city", nullable = false, length = 200)
     private String city;
 
-    @Column(name = "phone", nullable = false)
-    private long phone;
+    @Column(name = "phone")
+    private Long phone;
 
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "password", nullable = false, length = 150)
-    private String password;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pass_id", referencedColumnName = "password_id")
+    private Password passwords;
 
 
 //    private BufferedImage myPicture;      (Period 2)
@@ -37,17 +37,17 @@ public class User {
 //    private boolean hasDriversLicense;    (Period 2)
 
 
-    public User(Integer userId, String firstName, String lastName, String city, long phone, String email, String password) {
+    public User(Integer userId, String firstName, String lastName, String city, Long phone, String email, Password passwords) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
         this.phone = phone;
         this.email = email;
-        this.password = password;
+        this.passwords = passwords;
     }
+    public User() {}
 
-    public User() {}   // Could be protected!
 
     public Integer getUserId() {
         return userId;
@@ -77,11 +77,11 @@ public class User {
         this.city = city;
     }
 
-    public long getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
@@ -93,11 +93,27 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public Password getPassword() {
+        return passwords;
+    }
+    public void setPassword(Password password) {
+        this.passwords = password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", city='" + city + '\'' +
+                ", phone=" + phone +
+                ", email='" + email + '\'' +
+                ", passwords=" + passwords +
+                '}';
     }
 }
+
+
+
+

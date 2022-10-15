@@ -1,15 +1,9 @@
 package nl.avans.drivio.repository;
 
 import nl.avans.drivio.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-public interface IUserRepository {
-
-    List<User> findAll();
-    User findById(Integer userId);
-    void add(User user);
-    void update(User user);
-    void delete(User user);
-
+@Repository
+public interface IUserRepository extends JpaRepository<User, Integer> {
 }
