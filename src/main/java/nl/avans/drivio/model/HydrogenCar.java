@@ -1,16 +1,72 @@
 package nl.avans.drivio.model;
 
-public class HydrogenCar extends Car {
-    int range;
-    double kgPer100Km;
-    int tankSpeed;
-    int tankSize;
+import org.springframework.stereotype.Component;
 
-    public HydrogenCar(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User owner, User renter, int range, double kgPer100Km, int tankSpeed, int tankSize) {
-        super(carId, brand, model, fuelType, buildYear, numberPlate, carType, gearBox, owner, renter);
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
+public class HydrogenCar extends Car {
+    @Column(name = "RangeCar")
+    private int range;
+    private double kgPer100Km;
+    private int tankSpeed;
+    private int tankSize;
+
+    public HydrogenCar(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, int range, double kgPer100Km, int tankSpeed, int tankSize) {
+        super(carId, brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user);
         this.range = range;
         this.kgPer100Km = kgPer100Km;
         this.tankSpeed = tankSpeed;
         this.tankSize = tankSize;
+    }
+
+    public HydrogenCar() {
+
+    }
+
+    public int getRange() {
+        return range;
+    }
+
+    public void setRange(int range) {
+        this.range = range;
+    }
+
+    public double getKgPer100Km() {
+        return kgPer100Km;
+    }
+
+    public void setKgPer100Km(double kgPer100Km) {
+        this.kgPer100Km = kgPer100Km;
+    }
+
+    public int getTankSpeed() {
+        return tankSpeed;
+    }
+
+    public void setTankSpeed(int tankSpeed) {
+        this.tankSpeed = tankSpeed;
+    }
+
+    public int getTankSize() {
+        return tankSize;
+    }
+
+    public void setTankSize(int tankSize) {
+        this.tankSize = tankSize;
+    }
+
+    @Override
+    public String toString() {
+        return "HydrogenCar{" +
+                "range=" + range +
+                ", kgPer100Km=" + kgPer100Km +
+                ", tankSpeed=" + tankSpeed +
+                ", tankSize=" + tankSize +
+                '}';
     }
 }

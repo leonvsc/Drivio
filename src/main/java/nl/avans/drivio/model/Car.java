@@ -2,18 +2,11 @@ package nl.avans.drivio.model;
 
 import javax.persistence.*;
 
-@Entity
-@Table
+@MappedSuperclass
 public class Car {
     @Id
-    @SequenceGenerator(
-            name = "car_sequence",
-            sequenceName = "car_sequence",
-            allocationSize = 1
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "car_sequence"
+            strategy = GenerationType.AUTO
     )
     private int CarId;
     private String Brand;
@@ -23,13 +16,14 @@ public class Car {
     private String NumberPlate;
     private String CarType;
     private String GearBox;
-//    private User Owner;
-//    private User Renter;
+    @ManyToOne
+    @JoinColumn(name = "users")
+    private User user;
 
     public Car() {
     }
 
-    public Car(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User owner, User renter) {
+    public Car(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user) {
         this.CarId = carId;
         this.Brand = brand;
         this.Model = model;
@@ -38,9 +32,7 @@ public class Car {
         this.NumberPlate = numberPlate;
         this.CarType = carType;
         this.GearBox = gearBox;
-//        this.Owner = owner;
-//        this.Renter = renter;
-
+        this.user = user;
     }
     public int getCarId() {
         return CarId;
@@ -106,21 +98,13 @@ public class Car {
         this.GearBox = gearBox;
     }
 
-//    public User getOwner() {
-//        return Owner;
-//    }
-//
-//    public void setOwner(User owner) {
-//        Owner = owner;
-//    }
-//
-//    public User getRenter() {
-//        return Renter;
-//    }
-//
-//    public void setRenter(User renter) {
-//        Renter = renter;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Override
     public String toString() {
@@ -129,10 +113,11 @@ public class Car {
                 ", Brand='" + Brand + '\'' +
                 ", Model='" + Model + '\'' +
                 ", FuelType='" + FuelType + '\'' +
-                ", BuildYear='" + BuildYear + '\'' +
+                ", BuildYear=" + BuildYear +
                 ", NumberPlate='" + NumberPlate + '\'' +
                 ", CarType='" + CarType + '\'' +
                 ", GearBox='" + GearBox + '\'' +
+                ", user=" + user +
                 '}';
     }
 }
