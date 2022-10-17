@@ -30,7 +30,6 @@ public class User {
     @Column(name = "password", nullable = false, length = 150)
     private String password;
 
-
 //    private BufferedImage myPicture;      (Period 2)
 //    private String aboutMe;               (Period 2)
 //    private BufferedImage driversLicense; (Period 2)
@@ -100,4 +99,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

@@ -8,6 +8,7 @@ public class Car {
     @GeneratedValue(
             strategy = GenerationType.AUTO
     )
+    // TODO: Cammelcase gebruiken
     private int CarId;
     private String Brand;
     private String Model;
