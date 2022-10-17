@@ -1,23 +1,35 @@
 package nl.avans.drivio.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "statistics")
 public class Statistic {
-    private String StatisticId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int StatisticId;
     private String Name;
     private String Value;
-    private nl.avans.drivio.model.User User;
+    @ManyToOne
+    @JoinColumn
+    private User User;
 
-    public Statistic(String statisticId, String name, String value, nl.avans.drivio.model.User user) {
+    public Statistic(int statisticId, String name, String value, User user) {
         this.StatisticId = statisticId;
         this.Name = name;
         this.Value = value;
         this.User = user;
     }
 
-    public String getStatisticId() {
+    public Statistic() {
+
+    }
+
+    public int getStatisticId() {
         return StatisticId;
     }
 
-    public void setStatisticId(String statisticId) {
+    public void setStatisticId(int statisticId) {
         this.StatisticId = statisticId;
     }
 
@@ -37,11 +49,11 @@ public class Statistic {
         this.Value = value;
     }
 
-    public nl.avans.drivio.model.User getUser() {
+    public User getUser() {
         return User;
     }
 
-    public void setUser(nl.avans.drivio.model.User user) {
+    public void setUser(User user) {
         this.User = user;
     }
 }
