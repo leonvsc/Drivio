@@ -8,95 +8,94 @@ public class Car {
     @GeneratedValue(
             strategy = GenerationType.AUTO
     )
-    // TODO: Cammelcase gebruiken
-    private int CarId;
-    private String Brand;
-    private String Model;
-    private String FuelType;
-    private int BuildYear;
-    private String NumberPlate;
-    private String CarType;
-    private String GearBox;
+    private int carId;
+    private String brand;
+    private String model;
+    private String fuelType;
+    private int buildYear;
+    private String numberPlate;
+    private String carType;
+    private String gearBox;
     @ManyToOne
-    @JoinColumn(name = "users")
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Car() {
     }
 
     public Car(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user) {
-        this.CarId = carId;
-        this.Brand = brand;
-        this.Model = model;
-        this.FuelType = fuelType;
-        this.BuildYear = buildYear;
-        this.NumberPlate = numberPlate;
-        this.CarType = carType;
-        this.GearBox = gearBox;
+        this.carId = carId;
+        this.brand = brand;
+        this.model = model;
+        this.fuelType = fuelType;
+        this.buildYear = buildYear;
+        this.numberPlate = numberPlate;
+        this.carType = carType;
+        this.gearBox = gearBox;
         this.user = user;
     }
     public int getCarId() {
-        return CarId;
+        return carId;
     }
 
     public void setCarId(int carId) {
-        this.CarId = carId;
+        this.carId = carId;
     }
 
     public String getBrand() {
-        return Brand;
+        return brand;
     }
 
     public void setBrand(String brand) {
-        this.Brand = brand;
+        this.brand = brand;
     }
 
     public String getModel() {
-        return Model;
+        return model;
     }
 
     public void setModel(String model) {
-        this.Model = model;
+        this.model = model;
     }
 
     public String getFuelType() {
-        return FuelType;
+        return fuelType;
     }
 
     public void setFuelType(String fuelType) {
-        this.FuelType = fuelType;
+        this.fuelType = fuelType;
     }
 
     public int getBuildYear() {
-        return BuildYear;
+        return buildYear;
     }
 
     public void setBuildYear(int buildYear) {
-        this.BuildYear = buildYear;
+        this.buildYear = buildYear;
     }
 
     public String getNumberPlate() {
-        return NumberPlate;
+        return numberPlate;
     }
 
     public void setNumberPlate(String numberPlate) {
-        this.NumberPlate = numberPlate;
+        this.numberPlate = numberPlate;
     }
 
     public String getCarType() {
-        return CarType;
+        return carType;
     }
 
     public void setCarType(String carType) {
-        this.CarType = carType;
+        this.carType = carType;
     }
 
     public String getGearBox() {
-        return GearBox;
+        return gearBox;
     }
 
     public void setGearBox(String gearBox) {
-        this.GearBox = gearBox;
+        this.gearBox = gearBox;
     }
 
     public User getUser() {
@@ -110,14 +109,14 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "CarId=" + CarId +
-                ", Brand='" + Brand + '\'' +
-                ", Model='" + Model + '\'' +
-                ", FuelType='" + FuelType + '\'' +
-                ", BuildYear=" + BuildYear +
-                ", NumberPlate='" + NumberPlate + '\'' +
-                ", CarType='" + CarType + '\'' +
-                ", GearBox='" + GearBox + '\'' +
+                "CarId=" + carId +
+                ", Brand='" + brand + '\'' +
+                ", Model='" + model + '\'' +
+                ", FuelType='" + fuelType + '\'' +
+                ", BuildYear=" + buildYear +
+                ", NumberPlate='" + numberPlate + '\'' +
+                ", CarType='" + carType + '\'' +
+                ", GearBox='" + gearBox + '\'' +
                 ", user=" + user +
                 '}';
     }

@@ -1,7 +1,7 @@
 package nl.avans.drivio.service;
 
 import nl.avans.drivio.model.FuelCar;
-import nl.avans.drivio.repository.FuelCarRepository;
+import nl.avans.drivio.repository.IFuelCarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,35 +11,39 @@ import java.util.Optional;
 @Service
 public class FuelCarService {
 
-    private final FuelCarRepository fuelCarData;
+    private final IFuelCarRepository fuelCarRepository;
 
     @Autowired
-    public FuelCarService(FuelCarRepository fuelCarData) {
-        this.fuelCarData = fuelCarData;
+    public FuelCarService(IFuelCarRepository fuelCarData) {
+        this.fuelCarRepository = fuelCarData;
     }
 
     public List<FuelCar> getFuelCars() {
-        return fuelCarData.findAll();
+        return fuelCarRepository.findAll();
+    }
+
+    public Optional<FuelCar> getFuelCarById(int carId) {
+        return fuelCarRepository.findById(carId);
     }
 
     public void addFuelCar(FuelCar fuelCar) {
-        Optional<FuelCar> FuelOptional =  fuelCarData.findById(fuelCar.getCarId());
+        Optional<FuelCar> FuelOptional =  fuelCarRepository.findById(fuelCar.getCarId());
         if (FuelOptional.isPresent()) {
             throw new IllegalStateException("There is already an car with the id");
         }
 
-        fuelCarData.save(fuelCar);
+        fuelCarRepository.save(fuelCar);
     }
 
     public void removeFuelCar(int carId) {
-        boolean exists = fuelCarData.existsById(carId);
+        boolean exists = fuelCarRepository.existsById(carId);
         if (!exists) {
             throw new IllegalStateException("car with id " + carId + " doesn't exists");
         }
-        fuelCarData.deleteById(carId);
+        fuelCarRepository.deleteById(carId);
     }
 
     public void updateFuelCar(FuelCar fuelCar) {
-        fuelCarData.save(fuelCar);
+        fuelCarRepository.save(fuelCar);
     }
 }

@@ -1,24 +1,21 @@
 package nl.avans.drivio.model;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class HydrogenCar extends Car {
-    @Column(name = "RangeCar")
-    private int range;
+    @Column(name = "CarRange")
+    private int carRange;
     private double kgPer100Km;
     private int tankSpeed;
     private int tankSize;
 
     public HydrogenCar(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, int range, double kgPer100Km, int tankSpeed, int tankSize) {
         super(carId, brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user);
-        this.range = range;
+        this.carRange = range;
         this.kgPer100Km = kgPer100Km;
         this.tankSpeed = tankSpeed;
         this.tankSize = tankSize;
@@ -28,12 +25,12 @@ public class HydrogenCar extends Car {
 
     }
 
-    public int getRange() {
-        return range;
+    public int getCarRange() {
+        return carRange;
     }
 
-    public void setRange(int range) {
-        this.range = range;
+    public void setCarRange(int range) {
+        this.carRange = range;
     }
 
     public double getKgPer100Km() {
@@ -63,7 +60,7 @@ public class HydrogenCar extends Car {
     @Override
     public String toString() {
         return "HydrogenCar{" +
-                "range=" + range +
+                "range=" + carRange +
                 ", kgPer100Km=" + kgPer100Km +
                 ", tankSpeed=" + tankSpeed +
                 ", tankSize=" + tankSize +

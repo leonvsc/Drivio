@@ -1,10 +1,7 @@
 package nl.avans.drivio.model;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -13,14 +10,14 @@ public class FuelCar extends Car{
 
     private double literPer100Km;
     private int tankSize;
-    @Column(name = "RangeCar")
-    private int range;
+    @Column(name = "CarRange")
+    private int carRange;
 
     public FuelCar(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double literPer100Km, int tankSize, int range) {
         super(carId, brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user);
         this.literPer100Km = literPer100Km;
         this.tankSize = tankSize;
-        this.range = range;
+        this.carRange = range;
     }
 
     public FuelCar() {
@@ -43,12 +40,12 @@ public class FuelCar extends Car{
         this.tankSize = tankSize;
     }
 
-    public int getRange() {
-        return range;
+    public int getCarRange() {
+        return carRange;
     }
 
-    public void setRange(int range) {
-        this.range = range;
+    public void setCarRange(int range) {
+        this.carRange = range;
     }
 
     @Override
@@ -56,7 +53,7 @@ public class FuelCar extends Car{
         return "FuelCar{" +
                 "literPer100Km=" + literPer100Km +
                 ", tankSize=" + tankSize +
-                ", range=" + range +
+                ", range=" + carRange +
                 '}';
     }
 }

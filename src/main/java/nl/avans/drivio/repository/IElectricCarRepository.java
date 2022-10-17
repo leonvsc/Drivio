@@ -1,10 +1,9 @@
 package nl.avans.drivio.repository;
 
-import nl.avans.drivio.model.Car;
-import nl.avans.drivio.model.FuelCar;
+import nl.avans.drivio.model.ElectricCar;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FuelCarRepository extends JpaRepository<FuelCar, Integer> {
+public interface IElectricCarRepository extends JpaRepository<ElectricCar, Integer> {
 }

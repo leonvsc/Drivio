@@ -10,8 +10,8 @@ public class ElectricCar extends Car {
 
     private double whPerKm;
     private String chargeConnection;
-    @Column(name = "RangeCar")
-    private int range;
+    @Column(name = "CarRange")
+    private int carRange;
     private int chargeSpeed;
     private int fastChargeSpeed;
 
@@ -19,7 +19,7 @@ public class ElectricCar extends Car {
         super(carId, brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user);
         this.whPerKm = whPerKm;
         this.chargeConnection = chargeConnection;
-        this.range = range;
+        this.carRange = range;
         this.chargeSpeed = chargeSpeed;
         this.fastChargeSpeed = fastChargeSpeed;
     }
@@ -43,12 +43,12 @@ public class ElectricCar extends Car {
         this.chargeConnection = chargeConnection;
     }
 
-    public int getRange() {
-        return range;
+    public int getCarRange() {
+        return carRange;
     }
 
-    public void setRange(int range) {
-        this.range = range;
+    public void setCarRange(int range) {
+        this.carRange = range;
     }
 
     public int getChargeSpeed() {
@@ -72,7 +72,7 @@ public class ElectricCar extends Car {
         return "ElectricCar{" +
                 "whPerKm=" + whPerKm +
                 ", chargeConnection='" + chargeConnection + '\'' +
-                ", range=" + range +
+                ", range=" + carRange +
                 ", chargeSpeed=" + chargeSpeed +
                 ", fastChargeSpeed=" + fastChargeSpeed +
                 '}';

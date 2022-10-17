@@ -1,12 +1,12 @@
 package nl.avans.drivio.controller;
 
-import nl.avans.drivio.model.Car;
 import nl.avans.drivio.model.ElectricCar;
 import nl.avans.drivio.service.ElectricCarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1/ElectricCar")
@@ -24,6 +24,11 @@ public class ElectricCarController {
         return ElectricCarService.getElectricCars();
     }
 
+    @GetMapping(path = "{carId}")
+    public Optional<ElectricCar> getElectricCarById(@PathVariable("carId") int carId) {
+        return ElectricCarService.getElectricCarById(carId);
+    }
+
     @PutMapping(path = "/update")
     public void updateElectricCar(@RequestBody ElectricCar electricCar) {
         ElectricCarService.updateElectricCar(electricCar);
@@ -34,7 +39,7 @@ public class ElectricCarController {
         ElectricCarService.addElectricCar(electricCar);
     }
 
-    @DeleteMapping(path = "{carId}")
+    @DeleteMapping(path = "/delete/{carId}")
     public void removeElectricCar(@PathVariable("carId") int carId) {
         ElectricCarService.removeElectricCar(carId);
     }
