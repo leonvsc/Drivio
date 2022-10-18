@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "api/v1/HydrogenCar")
+@RequestMapping(path = "api/v1/hydrogencar")
 public class HydrogenCarController {
 
     private final HydrogenCarService HydrogenCarService;

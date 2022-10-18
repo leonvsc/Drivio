@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "api/v1/FuelCar")
+@RequestMapping(path = "api/v1/fuelcar")
 public class FuelCarController {
 
     private final FuelCarService FuelCarService;
