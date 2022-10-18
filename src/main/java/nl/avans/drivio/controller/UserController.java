@@ -1,21 +1,22 @@
 package nl.avans.drivio.controller;
 
 import nl.avans.drivio.model.User;
-import nl.avans.drivio.repository.IUserRepository;
+import nl.avans.drivio.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "api/v1/user")
+@RequestMapping(path = "/drivio")
 public class UserController {
 
-    private final IUserRepository userRepository;
+    private UserRepository userRepository;
 
 
     @Autowired
-    public UserController(IUserRepository userRepository) {
+    public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -24,15 +25,16 @@ public class UserController {
         return (List<User>) userRepository.findAll();
     }
 
+    @GetMapping(path = "/users/{id}")
+    public Optional<User> getById(@PathVariable int id) {
+        return userRepository.findById(id);
+    }
+
     @PostMapping(path = "/add")
     public void add(@RequestBody User user) {
         userRepository.save(user);
     }
 
-    @PutMapping(path = "/update")
-    public void update(@RequestBody User user) {
-        userRepository.save(user);
-    }
 
     @DeleteMapping(path = "/delete")
     public void delete(@RequestBody User user) {

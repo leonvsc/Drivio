@@ -1,6 +1,10 @@
 package nl.avans.drivio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 @Table(name = "users")
@@ -17,40 +21,42 @@ public class User {
     @Column(name = "last_name", nullable = false, length = 200)
     private String lastName;
 
-    @Column(name = "city", nullable = false, length = 200)
+    @Column(name = "city", nullable = false, length = 150)
     private String city;
 
     @Column(name = "phone")
     private Long phone;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, length = 200)
     private String email;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pass_id", referencedColumnName = "password_id")
     private Password passwords;
 
-
-//    private BufferedImage myPicture;      (Period 2)
-//    private String aboutMe;               (Period 2)
-//    private BufferedImage driversLicense; (Period 2)
-//    private boolean hasDriversLicense;    (Period 2)
+    @OneToMany(mappedBy = "user")  // CarRating is mappedBy (inside) User entity (in this case as a Collection (with primary key of CarRating)) (Bi-Directional)
+    @JsonIgnore
+    private Collection<CarRating> ratings = new ArrayList<>();
 
 
-    public User(Integer userId, String firstName, String lastName, String city, Long phone, String email, Password passwords) {
-        this.userId = userId;
+    public User(String firstName, String lastName, String city, Long phone, String email, Password passwords, Collection<CarRating> ratings) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
         this.phone = phone;
         this.email = email;
         this.passwords = passwords;
+        this.ratings = ratings;
     }
-    public User() {}
 
+    public User() {}
 
     public Integer getUserId() {
         return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {
@@ -93,11 +99,20 @@ public class User {
         this.email = email;
     }
 
-    public Password getPassword() {
+    public Password getPasswords() {
         return passwords;
     }
-    public void setPassword(Password password) {
-        this.passwords = password;
+
+    public void setPasswords(Password passwords) {
+        this.passwords = passwords;
+    }
+
+    public Collection<CarRating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(Collection<CarRating> ratings) {
+        this.ratings = ratings;
     }
 
     @Override
@@ -110,10 +125,10 @@ public class User {
                 ", phone=" + phone +
                 ", email='" + email + '\'' +
                 ", passwords=" + passwords +
+                ", ratings=" + ratings +
                 '}';
     }
 }
-
 
 
 

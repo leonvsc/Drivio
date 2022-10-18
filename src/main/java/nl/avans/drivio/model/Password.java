@@ -11,20 +11,19 @@ public class Password {
     @Column(name = "password_id")
     private Integer passwordId;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToOne(mappedBy = "passwords")  // mappedBy -> to make it a bidirectional relationship
+    @OneToOne(mappedBy = "passwords")
+    // mappedBy -> to make it a bidirectional relationship | users is mapped by passwords table: because users table has foreign key of passwords table
     private User users;
 
 
-    public Password(Integer passwordId, String password) {
-        this.passwordId = passwordId;
+    public Password(String password) {
         this.password = password;
     }
 
     public Password() {}
-
 
     public Integer getPasswordId() {
         return passwordId;

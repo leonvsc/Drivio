@@ -1,61 +1,59 @@
 package nl.avans.drivio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 @Table
 public class Car {
     @Id
-    @SequenceGenerator(
-            name = "car_sequence",
-            sequenceName = "car_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "car_sequence"
-    )
-    private int CarId;
-    private String Brand;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "car_id")
+    private Integer carId;
+    private String brand;
     private String Model;
-    private String FuelType;
-    private int BuildYear;
-    private String NumberPlate;
-    private String CarType;
-    private String GearBox;
-//    private User Owner;
-//    private User Renter;
+    private String fuelType;
+    private int buildYear;
+    private String numberPlate;
+    private String carType;
+    private String gearBox;
+
+    @OneToMany(mappedBy = "car")
+    @JsonIgnore
+    private Collection<CarRating> ratings = new ArrayList<>();
 
     public Car() {
     }
 
-    public Car(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User owner, User renter) {
-        this.CarId = carId;
-        this.Brand = brand;
+    public Car(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, Collection<CarRating> ratings) {
+        this.carId = carId;
+        this.brand = brand;
         this.Model = model;
-        this.FuelType = fuelType;
-        this.BuildYear = buildYear;
-        this.NumberPlate = numberPlate;
-        this.CarType = carType;
-        this.GearBox = gearBox;
-//        this.Owner = owner;
-//        this.Renter = renter;
-
-    }
-    public int getCarId() {
-        return CarId;
+        this.fuelType = fuelType;
+        this.buildYear = buildYear;
+        this.numberPlate = numberPlate;
+        this.carType = carType;
+        this.gearBox = gearBox;
+        this.ratings = ratings;
     }
 
-    public void setCarId(int carId) {
-        this.CarId = carId;
+    public Integer getCarId() {
+        return carId;
+    }
+
+    public void setCarId(Integer carId) {
+        this.carId = carId;
     }
 
     public String getBrand() {
-        return Brand;
+        return brand;
     }
 
     public void setBrand(String brand) {
-        this.Brand = brand;
+        this.brand = brand;
     }
 
     public String getModel() {
@@ -63,76 +61,69 @@ public class Car {
     }
 
     public void setModel(String model) {
-        this.Model = model;
+        Model = model;
     }
 
     public String getFuelType() {
-        return FuelType;
+        return fuelType;
     }
 
     public void setFuelType(String fuelType) {
-        this.FuelType = fuelType;
+        this.fuelType = fuelType;
     }
 
     public int getBuildYear() {
-        return BuildYear;
+        return buildYear;
     }
 
     public void setBuildYear(int buildYear) {
-        this.BuildYear = buildYear;
+        this.buildYear = buildYear;
     }
 
     public String getNumberPlate() {
-        return NumberPlate;
+        return numberPlate;
     }
 
     public void setNumberPlate(String numberPlate) {
-        this.NumberPlate = numberPlate;
+        this.numberPlate = numberPlate;
     }
 
     public String getCarType() {
-        return CarType;
+        return carType;
     }
 
     public void setCarType(String carType) {
-        this.CarType = carType;
+        this.carType = carType;
     }
 
     public String getGearBox() {
-        return GearBox;
+        return gearBox;
     }
 
     public void setGearBox(String gearBox) {
-        this.GearBox = gearBox;
+        this.gearBox = gearBox;
     }
 
-//    public User getOwner() {
-//        return Owner;
-//    }
-//
-//    public void setOwner(User owner) {
-//        Owner = owner;
-//    }
-//
-//    public User getRenter() {
-//        return Renter;
-//    }
-//
-//    public void setRenter(User renter) {
-//        Renter = renter;
-//    }
+    public Collection<CarRating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(Collection<CarRating> ratings) {
+        this.ratings = ratings;
+    }
 
     @Override
     public String toString() {
         return "Car{" +
-                "CarId=" + CarId +
-                ", Brand='" + Brand + '\'' +
+                "carId=" + carId +
+                ", brand='" + brand + '\'' +
                 ", Model='" + Model + '\'' +
-                ", FuelType='" + FuelType + '\'' +
-                ", BuildYear='" + BuildYear + '\'' +
-                ", NumberPlate='" + NumberPlate + '\'' +
-                ", CarType='" + CarType + '\'' +
-                ", GearBox='" + GearBox + '\'' +
+                ", fuelType='" + fuelType + '\'' +
+                ", buildYear=" + buildYear +
+                ", numberPlate='" + numberPlate + '\'' +
+                ", carType='" + carType + '\'' +
+                ", gearBox='" + gearBox + '\'' +
+                ", ratings=" + ratings +
                 '}';
     }
 }
