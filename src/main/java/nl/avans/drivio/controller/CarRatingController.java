@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/v1/rating")
+@RequestMapping("/drivio/rating")
 public class CarRatingController {
 
     private final ICarRatingRepository carRatingRepository;
@@ -19,17 +19,17 @@ public class CarRatingController {
         this.carRatingRepository = carRatingRepository;
     }
 
-    @GetMapping(path = "/ratings")
+    @GetMapping("/ratings")
     public List<CarRating> getAllRatings() {
         return carRatingRepository.findAll();
     }
 
-    @PostMapping(path = "/add")
+    @PostMapping("/add")
     public void add(@RequestBody CarRating carRating) {
         carRatingRepository.save(carRating);
     }
 
-    @DeleteMapping(path = "/delete")
+    @DeleteMapping("/delete")
     public void delete(@RequestBody CarRating carRating) {
         carRatingRepository.delete(carRating);
     }

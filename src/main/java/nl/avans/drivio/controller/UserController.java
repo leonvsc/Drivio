@@ -9,34 +9,33 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/drivio")
+@RequestMapping("/drivio/user")
 public class UserController {
 
-    private UserRepository userRepository;
-
+    private final UserRepository userRepository;
 
     @Autowired
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    @GetMapping(path = "/users")
+    @GetMapping("/users")
     public List<User> getAllUsers() {
         return (List<User>) userRepository.findAll();
     }
 
-    @GetMapping(path = "/users/{id}")
+    @GetMapping("/users/{id}")
     public Optional<User> getById(@PathVariable int id) {
         return userRepository.findById(id);
     }
 
-    @PostMapping(path = "/add")
+    @PostMapping("/add")
     public void add(@RequestBody User user) {
         userRepository.save(user);
     }
 
 
-    @DeleteMapping(path = "/delete")
+    @DeleteMapping("/delete")
     public void delete(@RequestBody User user) {
         userRepository.delete(user);
     }
