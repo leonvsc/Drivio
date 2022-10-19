@@ -1,6 +1,10 @@
 package nl.avans.drivio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @MappedSuperclass
 public class Car {

@@ -1,45 +1,42 @@
 package nl.avans.drivio.controller;
 
-import nl.avans.drivio.service.IUserManager;
 import nl.avans.drivio.model.User;
+import nl.avans.drivio.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/drivio")  // Optional
+@RequestMapping("/api/v1/user")
 public class UserController {
 
-    private final IUserManager userManager;
+    private final UserRepository userRepository;
 
     @Autowired
-    public UserController(IUserManager userManager) {
-        this.userManager = userManager;
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    @GetMapping(path = "/users")
+    @GetMapping()
     public List<User> getAllUsers() {
-        return this.userManager.findAll();
+        return (List<User>) userRepository.findAll();
     }
 
-    @GetMapping(path = "/users/{id}")              // Curly braces means 'expecting an id arg'
-    public User findById(@PathVariable int id) {     // Get arg from body. Example: /api/users/1
-        return this.userManager.findById(id);
+    @GetMapping("{userId}")
+    public Optional<User> getById(@PathVariable("userId") int userId) {
+        return userRepository.findById(userId);
     }
 
-    @PostMapping(path = "/add")
-    public void add(@RequestBody User user) {        // Arg will be given from the body of the request (postman)
-        this.userManager.add(user);
+    @PostMapping()
+    public void add(@RequestBody User user) {
+        userRepository.save(user);
     }
 
-    @PutMapping(path = "/update")
-    public void update(@RequestBody User user) {
-        this.userManager.update(user);
-    }
 
-    @DeleteMapping(path = "/delete")
+    @DeleteMapping("/delete")
     public void delete(@RequestBody User user) {
-        this.userManager.delete(user);
+        userRepository.delete(user);
     }
 }
