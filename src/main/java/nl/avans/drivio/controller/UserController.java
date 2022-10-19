@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/drivio/user")
+@RequestMapping("/api/v1/user")
 public class UserController {
 
     private final UserRepository userRepository;
@@ -19,17 +19,17 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/users")
+    @GetMapping()
     public List<User> getAllUsers() {
         return (List<User>) userRepository.findAll();
     }
 
-    @GetMapping("/users/{id}")
-    public Optional<User> getById(@PathVariable int id) {
-        return userRepository.findById(id);
+    @GetMapping("{userId}")
+    public Optional<User> getById(@PathVariable("userId") int userId) {
+        return userRepository.findById(userId);
     }
 
-    @PostMapping("/add")
+    @PostMapping()
     public void add(@RequestBody User user) {
         userRepository.save(user);
     }
