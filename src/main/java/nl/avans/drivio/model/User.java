@@ -128,6 +128,7 @@ public class User {
                 ", ratings=" + ratings +
                 '}';
     }
+
 }
 
 

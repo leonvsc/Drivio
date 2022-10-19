@@ -37,7 +37,7 @@ public class AdvertisementService {
     public void deleteAdvertisement(int advertisementId) {
         boolean exists = AdvertisementRepository.existsById(advertisementId);
         if (!exists) {
-            throw new IllegalStateException("account with id " + advertisementId + " doesn't exists");
+            throw new IllegalStateException("Advertisement with id " + advertisementId + " doesn't exists");
         }
         AdvertisementRepository.deleteById(advertisementId);
     }

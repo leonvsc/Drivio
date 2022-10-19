@@ -6,45 +6,43 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
-@Entity
-@Table
+@MappedSuperclass
 public class Car {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "car_id")
-    private Integer carId;
+    @GeneratedValue(
+            strategy = GenerationType.AUTO
+    )
+    private int carId;
     private String brand;
-    private String Model;
+    private String model;
     private String fuelType;
     private int buildYear;
     private String numberPlate;
     private String carType;
     private String gearBox;
-
-    @OneToMany(mappedBy = "car")
-    @JsonIgnore
-    private Collection<CarRating> ratings = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Car() {
     }
 
-    public Car(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, Collection<CarRating> ratings) {
+    public Car(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user) {
         this.carId = carId;
         this.brand = brand;
-        this.Model = model;
+        this.model = model;
         this.fuelType = fuelType;
         this.buildYear = buildYear;
         this.numberPlate = numberPlate;
         this.carType = carType;
         this.gearBox = gearBox;
-        this.ratings = ratings;
+        this.user = user;
     }
-
-    public Integer getCarId() {
+    public int getCarId() {
         return carId;
     }
 
-    public void setCarId(Integer carId) {
+    public void setCarId(int carId) {
         this.carId = carId;
     }
 
@@ -57,11 +55,11 @@ public class Car {
     }
 
     public String getModel() {
-        return Model;
+        return model;
     }
 
     public void setModel(String model) {
-        Model = model;
+        this.model = model;
     }
 
     public String getFuelType() {
@@ -104,26 +102,26 @@ public class Car {
         this.gearBox = gearBox;
     }
 
-    public Collection<CarRating> getRatings() {
-        return ratings;
+    public User getUser() {
+        return user;
     }
 
-    public void setRatings(Collection<CarRating> ratings) {
-        this.ratings = ratings;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "carId=" + carId +
-                ", brand='" + brand + '\'' +
-                ", Model='" + Model + '\'' +
-                ", fuelType='" + fuelType + '\'' +
-                ", buildYear=" + buildYear +
-                ", numberPlate='" + numberPlate + '\'' +
-                ", carType='" + carType + '\'' +
-                ", gearBox='" + gearBox + '\'' +
-                ", ratings=" + ratings +
+                "CarId=" + carId +
+                ", Brand='" + brand + '\'' +
+                ", Model='" + model + '\'' +
+                ", FuelType='" + fuelType + '\'' +
+                ", BuildYear=" + buildYear +
+                ", NumberPlate='" + numberPlate + '\'' +
+                ", CarType='" + carType + '\'' +
+                ", GearBox='" + gearBox + '\'' +
+                ", user=" + user +
                 '}';
     }
 }
