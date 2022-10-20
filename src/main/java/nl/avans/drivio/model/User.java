@@ -34,19 +34,14 @@ public class User {
     @JoinColumn(name = "pass_id", referencedColumnName = "password_id")
     private Password passwords;
 
-    @OneToMany(mappedBy = "user")  // CarRating is mappedBy (inside) User entity (in this case as a Collection (with primary key of CarRating)) (Bi-Directional)
-    @JsonIgnore
-    private Collection<CarRating> ratings = new ArrayList<>();
 
-
-    public User(String firstName, String lastName, String city, Long phone, String email, Password passwords, Collection<CarRating> ratings) {
+    public User(String firstName, String lastName, String city, Long phone, String email, Password passwords) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
         this.phone = phone;
         this.email = email;
         this.passwords = passwords;
-        this.ratings = ratings;
     }
 
     public User() {}
@@ -107,14 +102,6 @@ public class User {
         this.passwords = passwords;
     }
 
-    public Collection<CarRating> getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(Collection<CarRating> ratings) {
-        this.ratings = ratings;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -125,7 +112,6 @@ public class User {
                 ", phone=" + phone +
                 ", email='" + email + '\'' +
                 ", passwords=" + passwords +
-                ", ratings=" + ratings +
                 '}';
     }
 
