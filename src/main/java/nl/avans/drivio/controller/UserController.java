@@ -29,11 +29,15 @@ public class UserController {
         return userRepository.findById(userId);
     }
 
-    @PostMapping()
+    @PostMapping
     public void add(@RequestBody User user) {
         userRepository.save(user);
     }
 
+    @PutMapping("/update")
+    public void updateUser(@RequestBody User user) {
+        userRepository.save(user);
+    }
 
     @DeleteMapping("/delete")
     public void delete(@RequestBody User user) {
