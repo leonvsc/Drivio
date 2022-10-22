@@ -23,8 +23,7 @@ public class Car {
     public Car() {
     }
 
-    public Car(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user) {
-        this.carId = carId;
+    public Car(String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user) {
         this.brand = brand;
         this.model = model;
         this.fuelType = fuelType;

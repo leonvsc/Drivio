@@ -13,8 +13,8 @@ public class FuelCar extends Car{
     @Column(name = "CarRange")
     private int carRange;
 
-    public FuelCar(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double literPer100Km, int tankSize, int range) {
-        super(carId, brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user);
+    public FuelCar(String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double literPer100Km, int tankSize, int range) {
+        super(brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user);
         this.literPer100Km = literPer100Km;
         this.tankSize = tankSize;
         this.carRange = range;

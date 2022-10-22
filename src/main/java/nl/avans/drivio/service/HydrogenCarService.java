@@ -35,7 +35,7 @@ public class HydrogenCarService {
         hydrogenCarRepository.save(hydrogenCar);
     }
 
-    public void removeHydrogenCar(int carId) {
+    public void removeHydrogenCar(Integer carId) {
         boolean exists = hydrogenCarRepository.existsById(carId);
         if (!exists) {
             throw new IllegalStateException("car with id " + carId + " doesn't exists");
