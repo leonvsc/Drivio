@@ -14,11 +14,10 @@ public class Password {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToOne(mappedBy = "passwords")
-    // mappedBy -> to make it a bidirectional relationship | users is mapped by passwords table: because users table has foreign key of passwords table
+
+    @OneToOne(mappedBy = "passwords")  // mappedBy -> to make it a bidirectional relationship
     private User users;
-
-
+    
     public Password(String password) {
         this.password = password;
     }
