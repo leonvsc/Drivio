@@ -60,7 +60,7 @@ public class HydrogenCar extends Car {
     @Override
     public String toString() {
         return "HydrogenCar{" +
-                "range=" + carRange +
+                "carRange=" + carRange +
                 ", kgPer100Km=" + kgPer100Km +
                 ", tankSpeed=" + tankSpeed +
                 ", tankSize=" + tankSize +

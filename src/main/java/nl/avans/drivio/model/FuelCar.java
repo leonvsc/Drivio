@@ -53,7 +53,7 @@ public class FuelCar extends Car{
         return "FuelCar{" +
                 "literPer100Km=" + literPer100Km +
                 ", tankSize=" + tankSize +
-                ", range=" + carRange +
+                ", carRange=" + carRange +
                 '}';
     }
 }

@@ -72,7 +72,7 @@ public class ElectricCar extends Car {
         return "ElectricCar{" +
                 "whPerKm=" + whPerKm +
                 ", chargeConnection='" + chargeConnection + '\'' +
-                ", range=" + carRange +
+                ", carRange=" + carRange +
                 ", chargeSpeed=" + chargeSpeed +
                 ", fastChargeSpeed=" + fastChargeSpeed +
                 '}';
