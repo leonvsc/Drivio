@@ -1,11 +1,10 @@
 package nl.avans.drivio.model;
 
-import nl.avans.drivio.model.FuelCar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
 class FuelCarTest {
     private FuelCar fuelCar;
