@@ -2,7 +2,7 @@ package nl.avans.drivio.service;
 
 import nl.avans.drivio.model.*;
 import nl.avans.drivio.repository.IHydrogenCarRepository;
-import nl.avans.drivio.repository.UserRepository;
+import nl.avans.drivio.repository.IUserRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ class HydrogenCarServiceTest {
     @Autowired
     private IHydrogenCarRepository repository;
     @Autowired
-    private UserRepository userRepository;
+    private IUserRepository userRepository;
 
     @AfterEach
     void tearDown() {

@@ -1,7 +1,6 @@
 package nl.avans.drivio.controller;
 
 import nl.avans.drivio.model.User;
-import nl.avans.drivio.repository.UserRepository;
 import nl.avans.drivio.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/user")
