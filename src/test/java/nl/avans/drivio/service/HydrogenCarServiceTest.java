@@ -13,6 +13,7 @@ import org.springframework.test.context.TestPropertySource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+// Test if an carId is assigned automatic
 @DataJpaTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 class HydrogenCarServiceTest {

@@ -11,6 +11,7 @@ import org.springframework.test.context.TestPropertySource;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+// Test if the users Id's are not the same
 @DataJpaTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 class UserControllerTest {

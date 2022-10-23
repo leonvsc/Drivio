@@ -2,8 +2,10 @@ package nl.avans.drivio.model;
 
 import javax.persistence.*;
 
+// MappedSuperclass because of the inheritance
 @MappedSuperclass
 public class Car {
+    // Generates an ID on auto mode, which generates an ID over the whole app
     @Id
     @GeneratedValue(
             strategy = GenerationType.AUTO
@@ -16,6 +18,7 @@ public class Car {
     private String numberPlate;
     private String carType;
     private String gearBox;
+    // Joins the column user_id to the car tables
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
