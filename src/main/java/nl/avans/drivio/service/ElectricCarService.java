@@ -11,38 +11,38 @@ import java.util.Optional;
 @Service
 public class ElectricCarService {
 
-    private final IElectricCarRepository electricCarRepository;
+    private final IElectricCarRepository ElectricCarRepository;
 
     @Autowired
     public ElectricCarService(IElectricCarRepository electricCarData) {
-        this.electricCarRepository = electricCarData;
+        this.ElectricCarRepository = electricCarData;
     }
 
     public List<ElectricCar> getElectricCars() {
-        return electricCarRepository.findAll();
+        return ElectricCarRepository.findAll();
     }
 
     public Optional<ElectricCar> getElectricCarById(int carId) {
-        return electricCarRepository.findById(carId);
+        return ElectricCarRepository.findById(carId);
     }
 
     public void addElectricCar(ElectricCar electricCar) {
-        Optional<ElectricCar> electricCarOptional =  electricCarRepository.findById(electricCar.getCarId());
+        Optional<ElectricCar> electricCarOptional =  ElectricCarRepository.findById(electricCar.getCarId());
         if (electricCarOptional.isPresent()) {
             throw new IllegalStateException("There is already an car with the id");
         }
-        electricCarRepository.save(electricCar);
+        ElectricCarRepository.save(electricCar);
     }
 
     public void removeElectricCar(int carId) {
-        boolean exists = electricCarRepository.existsById(carId);
+        boolean exists = ElectricCarRepository.existsById(carId);
         if (!exists) {
             throw new IllegalStateException("car with id " + carId + " doesn't exists");
         }
-        electricCarRepository.deleteById(carId);
+        ElectricCarRepository.deleteById(carId);
     }
 
     public void updateElectricCar(ElectricCar electricCar) {
-        electricCarRepository.save(electricCar);
+        ElectricCarRepository.save(electricCar);
     }
 }

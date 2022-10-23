@@ -8,20 +8,20 @@ public class Statistic {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "statistic_id")
-    private int StatisticId;
+    private int statisticId;
     @Column(name = "name")
-    private String Name;
+    private String name;
     @Column(name = "value")
-    private String Value;
+    private String value;
     @ManyToOne // ManyToOne Relation between Statistic and User
     @JoinColumn
-    private User User;
+    private User user;
 
     public Statistic(int statisticId, String name, String value, User user) {
-        this.StatisticId = statisticId;
-        this.Name = name;
-        this.Value = value;
-        this.User = user;
+        this.statisticId = statisticId;
+        this.name = name;
+        this.value = value;
+        this.user = user;
     }
 
     public Statistic() {
@@ -29,34 +29,34 @@ public class Statistic {
     }
 
     public int getStatisticId() {
-        return StatisticId;
+        return statisticId;
     }
 
     public void setStatisticId(int statisticId) {
-        this.StatisticId = statisticId;
+        this.statisticId = statisticId;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        this.Name = name;
+        this.name = name;
     }
 
     public String getValue() {
-        return Value;
+        return value;
     }
 
     public void setValue(String value) {
-        this.Value = value;
+        this.value = value;
     }
 
     public User getUser() {
-        return User;
+        return user;
     }
 
     public void setUser(User user) {
-        this.User = user;
+        this.user = user;
     }
 }

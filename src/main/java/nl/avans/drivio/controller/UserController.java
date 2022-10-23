@@ -13,37 +13,37 @@ import java.util.List;
 @RequestMapping("/api/v1/user")
 public class UserController {
 
-    private final UserService userService;
+    private final UserService UserService;
 
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public UserController(UserService UserService) {
+        this.UserService = UserService;
     }
 
     @GetMapping()
     public List<User> getAllUsers() {
-        return (List<User>) userService.getAllUsers();
+        return (List<User>) UserService.getAllUsers();
     }
 
     @GetMapping("{userId}")
     public ResponseEntity<User> getUserById(@PathVariable("userId") int userId) {
-        return new ResponseEntity<>(userService.getUserById(userId), HttpStatus.OK);
+        return new ResponseEntity<>(UserService.getUserById(userId), HttpStatus.OK);
     }
     @PostMapping()
-    public void add(@RequestBody User user) {
-        userService.add(user);
+    public void addUser(@RequestBody User user) {
+        UserService.addUser(user);
     }
 
     @PutMapping("{userId}")
     public ResponseEntity<User> updateUser(@PathVariable("userId") int id, @RequestBody User user) {
-        return new ResponseEntity<>(userService.updateUser(user, id), HttpStatus.OK);
+        return new ResponseEntity<>(UserService.updateUser(user, id), HttpStatus.OK);
     }
 
     @DeleteMapping("{userId}")
     public ResponseEntity<String> deleteUser(@PathVariable("userId") int userId) {
 
         // Delete user from Database
-        userService.deleteUser(userId);
+        UserService.deleteUser(userId);
 
         return new ResponseEntity<String>("User deleted successfully!", HttpStatus.OK);
     }

@@ -11,39 +11,39 @@ import java.util.Optional;
 @Service
 public class FuelCarService {
 
-    private final IFuelCarRepository fuelCarRepository;
+    private final IFuelCarRepository FuelCarRepository;
 
     @Autowired
     public FuelCarService(IFuelCarRepository fuelCarData) {
-        this.fuelCarRepository = fuelCarData;
+        this.FuelCarRepository = fuelCarData;
     }
 
     public List<FuelCar> getFuelCars() {
-        return fuelCarRepository.findAll();
+        return FuelCarRepository.findAll();
     }
 
     public Optional<FuelCar> getFuelCarById(int carId) {
-        return fuelCarRepository.findById(carId);
+        return FuelCarRepository.findById(carId);
     }
 
     public void addFuelCar(FuelCar fuelCar) {
-        Optional<FuelCar> FuelOptional =  fuelCarRepository.findById(fuelCar.getCarId());
+        Optional<FuelCar> FuelOptional =  FuelCarRepository.findById(fuelCar.getCarId());
         if (FuelOptional.isPresent()) {
             throw new IllegalStateException("There is already an car with the id");
         }
 
-        fuelCarRepository.save(fuelCar);
+        FuelCarRepository.save(fuelCar);
     }
 
     public void removeFuelCar(int carId) {
-        boolean exists = fuelCarRepository.existsById(carId);
+        boolean exists = FuelCarRepository.existsById(carId);
         if (!exists) {
             throw new IllegalStateException("car with id " + carId + " doesn't exists");
         }
-        fuelCarRepository.deleteById(carId);
+        FuelCarRepository.deleteById(carId);
     }
 
     public void updateFuelCar(FuelCar fuelCar) {
-        fuelCarRepository.save(fuelCar);
+        FuelCarRepository.save(fuelCar);
     }
 }
