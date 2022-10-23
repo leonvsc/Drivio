@@ -4,16 +4,22 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table
+@Table(name = "advertisements")
 public class Advertisement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "advertisement_id")
     private int AdvertisementId;
+    @Column(name = "title")
     private String Title;
+    @Column(name = "description")
     private String Description;
+    @Column(name = "price")
     private double Price;
+    @Column(name = "start_date")
     private LocalDate StartDate;
+    @Column(name = "end_date")
     private LocalDate EndDate;
     @ManyToOne
     @JoinColumn

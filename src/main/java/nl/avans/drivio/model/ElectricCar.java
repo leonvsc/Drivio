@@ -5,14 +5,18 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "electric_cars")
 public class ElectricCar extends Car {
 
+    @Column(name = "wh_per_km")
     private double whPerKm;
+    @Column(name = "charge_connection")
     private String chargeConnection;
-    @Column(name = "CarRange")
+    @Column(name = "car_range")
     private int carRange;
+    @Column(name = "charge_speed")
     private int chargeSpeed;
+    @Column(name = "fast_charge_speed")
     private int fastChargeSpeed;
 
     public ElectricCar(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double whPerKm, String chargeConnection, int range, int chargeSpeed, int fastChargeSpeed) {

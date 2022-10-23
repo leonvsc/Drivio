@@ -7,8 +7,11 @@ import javax.persistence.*;
 public class Statistic {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "statistic_id")
     private int StatisticId;
+    @Column(name = "name")
     private String Name;
+    @Column(name = "value")
     private String Value;
     @ManyToOne
     @JoinColumn
