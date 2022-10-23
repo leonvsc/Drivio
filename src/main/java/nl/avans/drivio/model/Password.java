@@ -11,7 +11,7 @@ public class Password {
     @Column(name = "password_id")
     private Integer passwordId;
 
-    @Column(name = "passwordUser", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
 
