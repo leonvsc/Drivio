@@ -1,6 +1,8 @@
 package nl.avans.drivio.service;
 
-import nl.avans.drivio.model.*;
+import nl.avans.drivio.model.HydrogenCar;
+import nl.avans.drivio.model.Password;
+import nl.avans.drivio.model.User;
 import nl.avans.drivio.repository.IHydrogenCarRepository;
 import nl.avans.drivio.repository.IUserRepository;
 import org.junit.jupiter.api.AfterEach;

@@ -2,7 +2,6 @@ package nl.avans.drivio.service;
 
 
 import nl.avans.drivio.model.ElectricCar;
-
 import nl.avans.drivio.model.Password;
 import nl.avans.drivio.model.User;
 import nl.avans.drivio.repository.IElectricCarRepository;
