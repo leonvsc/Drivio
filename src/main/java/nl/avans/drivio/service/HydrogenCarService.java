@@ -27,6 +27,7 @@ public class HydrogenCarService {
     }
 
     public void addHydrogenCar(HydrogenCar hydrogenCar) {
+        // Check if there already is a car with the id
         Optional<HydrogenCar> HydrogenOptional =  HydrogenCarRepository.findById(hydrogenCar.getCarId());
         if (HydrogenOptional.isPresent()) {
             throw new IllegalStateException("There is already an car with the id");
@@ -36,6 +37,7 @@ public class HydrogenCarService {
     }
 
     public void removeHydrogenCar(Integer carId) {
+        // Check if a car with the id exists
         boolean exists = HydrogenCarRepository.existsById(carId);
         if (!exists) {
             throw new IllegalStateException("car with id " + carId + " doesn't exists");

@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AdvertisementTest {
 
+    // Test if the advertisementId can be filled
     @Test
     void setAdvertisementId() throws NoSuchFieldException, IllegalAccessException {
         // Given
@@ -15,7 +16,7 @@ class AdvertisementTest {
         //When
         advertisement.setAdvertisementId(10);
         // Then
-        final Field field = advertisement.getClass().getDeclaredField("AdvertisementId");
+        final Field field = advertisement.getClass().getDeclaredField("advertisementId");
         field.setAccessible(true);
         assertEquals(10, field.get(advertisement));
     }

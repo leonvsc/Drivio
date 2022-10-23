@@ -17,6 +17,7 @@ public class HydrogenCar extends Car {
     private int tankSize;
 
     public HydrogenCar(String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, int carRange, double kgPer100Km, int tankSpeed, int tankSize) {
+        // Gets the values from the car class
         super(brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user);
         this.carRange = carRange;
         this.kgPer100Km = kgPer100Km;

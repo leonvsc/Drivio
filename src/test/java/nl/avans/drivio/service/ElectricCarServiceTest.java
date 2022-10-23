@@ -14,6 +14,7 @@ import org.springframework.test.context.TestPropertySource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// Test if the carId is equal to 1
 @DataJpaTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 class ElectricCarServiceTest {
