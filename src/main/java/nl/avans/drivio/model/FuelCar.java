@@ -5,12 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "fuel_cars")
 public class FuelCar extends Car{
 
+    @Column(name = "liter_per_100km")
     private double literPer100Km;
+    @Column(name = "tank_size")
     private int tankSize;
-    @Column(name = "CarRange")
+    @Column(name = "car_range")
     private int carRange;
 
     public FuelCar(String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double literPer100Km, int tankSize, int range) {
