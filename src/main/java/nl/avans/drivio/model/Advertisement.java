@@ -10,27 +10,27 @@ public class Advertisement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "advertisement_id")
-    private int AdvertisementId;
+    private int advertisementId;
     @Column(name = "title")
-    private String Title;
+    private String title;
     @Column(name = "description")
-    private String Description;
+    private String description;
     @Column(name = "price")
-    private double Price;
+    private double price;
     @Column(name = "start_date")
-    private LocalDate StartDate;
+    private LocalDate startDate;
     @Column(name = "end_date")
-    private LocalDate EndDate;
+    private LocalDate endDate;
     @ManyToOne // ManyToOne relation between Advertisement and User.
     @JoinColumn
     private User user;
 
     public Advertisement(String title, String description, double price, LocalDate startDate, LocalDate endDate, User user) {
-        Title = title;
-        Description = description;
-        Price = price;
-        StartDate = startDate;
-        EndDate = endDate;
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.user = user;
     }
 
@@ -39,51 +39,51 @@ public class Advertisement {
     }
 
     public int getAdvertisementId() {
-        return AdvertisementId;
+        return advertisementId;
     }
 
     public void setAdvertisementId(int advertisementId) {
-        AdvertisementId = advertisementId;
+        this.advertisementId = advertisementId;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public double getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(double price) {
-        Price = price;
+        this.price = price;
     }
 
     public LocalDate getStartDate() {
-        return StartDate;
+        return startDate;
     }
 
     public void setStartDate(LocalDate startDate) {
-        StartDate = startDate;
+        this.startDate = startDate;
     }
 
     public LocalDate getEndDate() {
-        return EndDate;
+        return endDate;
     }
 
     public void setEndDate(LocalDate endDate) {
-        EndDate = endDate;
+        this.endDate = endDate;
     }
 
     public User getUser() {
@@ -97,12 +97,12 @@ public class Advertisement {
     @Override
     public String toString() {
         return "Advertisement{" +
-                "AdvertisementId=" + AdvertisementId +
-                ", Title='" + Title + '\'' +
-                ", Description='" + Description + '\'' +
-                ", Price=" + Price +
-                ", StartDate=" + StartDate +
-                ", EndDate=" + EndDate +
+                "AdvertisementId=" + advertisementId +
+                ", Title='" + title + '\'' +
+                ", Description='" + description + '\'' +
+                ", Price=" + price +
+                ", StartDate=" + startDate +
+                ", EndDate=" + endDate +
                 ", user=" + user +
                 '}';
     }

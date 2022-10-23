@@ -32,7 +32,7 @@ public class UserService {
         }
     }
 
-    public void add(User user) {
+    public void addUser(User user) {
         userRepository.save(user);
     }
 

@@ -11,39 +11,39 @@ import java.util.Optional;
 @Service
 public class HydrogenCarService {
 
-    private final IHydrogenCarRepository hydrogenCarRepository;
+    private final IHydrogenCarRepository HydrogenCarRepository;
 
     @Autowired
     public HydrogenCarService(IHydrogenCarRepository hydrogenCarData) {
-        this.hydrogenCarRepository = hydrogenCarData;
+        this.HydrogenCarRepository = hydrogenCarData;
     }
 
     public List<HydrogenCar> getHydrogenCars() {
-        return hydrogenCarRepository.findAll();
+        return HydrogenCarRepository.findAll();
     }
 
     public Optional<HydrogenCar> getHydrogenCarById(int carId) {
-        return hydrogenCarRepository.findById(carId);
+        return HydrogenCarRepository.findById(carId);
     }
 
     public void addHydrogenCar(HydrogenCar hydrogenCar) {
-        Optional<HydrogenCar> HydrogenOptional =  hydrogenCarRepository.findById(hydrogenCar.getCarId());
+        Optional<HydrogenCar> HydrogenOptional =  HydrogenCarRepository.findById(hydrogenCar.getCarId());
         if (HydrogenOptional.isPresent()) {
             throw new IllegalStateException("There is already an car with the id");
         }
 
-        hydrogenCarRepository.save(hydrogenCar);
+        HydrogenCarRepository.save(hydrogenCar);
     }
 
     public void removeHydrogenCar(Integer carId) {
-        boolean exists = hydrogenCarRepository.existsById(carId);
+        boolean exists = HydrogenCarRepository.existsById(carId);
         if (!exists) {
             throw new IllegalStateException("car with id " + carId + " doesn't exists");
         }
-        hydrogenCarRepository.deleteById(carId);
+        HydrogenCarRepository.deleteById(carId);
     }
 
     public void updateHydrogenCar(HydrogenCar hydrogenCar) {
-        hydrogenCarRepository.save(hydrogenCar);
+        HydrogenCarRepository.save(hydrogenCar);
     }
 }
