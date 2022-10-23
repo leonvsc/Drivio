@@ -10,7 +10,7 @@ public class Statistic {
     private int StatisticId;
     private String Name;
     private String Value;
-    @ManyToOne
+    @ManyToOne // ManyToOne Relation between Statistic and User
     @JoinColumn
     private User User;
 

@@ -15,7 +15,7 @@ public class Advertisement {
     private double Price;
     private LocalDate StartDate;
     private LocalDate EndDate;
-    @ManyToOne
+    @ManyToOne // ManyToOne relation between Advertisement and User.
     @JoinColumn
     private User user;
 
