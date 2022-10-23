@@ -15,8 +15,8 @@ public class ElectricCar extends Car {
     private int chargeSpeed;
     private int fastChargeSpeed;
 
-    public ElectricCar(int carId, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double whPerKm, String chargeConnection, int range, int chargeSpeed, int fastChargeSpeed) {
-        super(carId, brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user);
+    public ElectricCar(String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double whPerKm, String chargeConnection, int range, int chargeSpeed, int fastChargeSpeed) {
+        super(brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user);
         this.whPerKm = whPerKm;
         this.chargeConnection = chargeConnection;
         this.carRange = range;
@@ -72,7 +72,7 @@ public class ElectricCar extends Car {
         return "ElectricCar{" +
                 "whPerKm=" + whPerKm +
                 ", chargeConnection='" + chargeConnection + '\'' +
-                ", range=" + carRange +
+                ", carRange=" + carRange +
                 ", chargeSpeed=" + chargeSpeed +
                 ", fastChargeSpeed=" + fastChargeSpeed +
                 '}';
