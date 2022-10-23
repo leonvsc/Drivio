@@ -1,4 +1,4 @@
-package nl.avans.drivio.service;
+package nl.avans.drivio.model;
 
 import nl.avans.drivio.model.FuelCar;
 import org.junit.jupiter.api.BeforeEach;

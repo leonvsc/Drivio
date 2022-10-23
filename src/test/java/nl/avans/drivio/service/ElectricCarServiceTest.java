@@ -1,7 +1,11 @@
 package nl.avans.drivio.service;
 
-import nl.avans.drivio.model.*;
-import nl.avans.drivio.repository.IHydrogenCarRepository;
+
+import nl.avans.drivio.model.ElectricCar;
+
+import nl.avans.drivio.model.Password;
+import nl.avans.drivio.model.User;
+import nl.avans.drivio.repository.IElectricCarRepository;
 import nl.avans.drivio.repository.UserRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -9,13 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.TestPropertySource;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DataJpaTest
 @TestPropertySource(locations = "classpath:application-test.properties")
-class HydrogenCarServiceTest {
+class ElectricCarServiceTest {
     @Autowired
-    private IHydrogenCarRepository repository;
+    private IElectricCarRepository repository;
+
     @Autowired
     private UserRepository userRepository;
 
@@ -26,7 +31,7 @@ class HydrogenCarServiceTest {
 
 
     @Test
-    void addHydrogenCarTest() {
+    void getElectricCarByIdTest() {
         // Given
         Password password1 = new Password(
                 "Voorbeeld1");
@@ -37,7 +42,7 @@ class HydrogenCarServiceTest {
                 12345L,
                 "niels-warnaar@live.nl",
                 password1);
-        HydrogenCar car = new HydrogenCar(
+        ElectricCar car = new ElectricCar(
                 "Opel",
                 "Corsa",
                 "Fuelcar",
@@ -46,17 +51,15 @@ class HydrogenCarServiceTest {
                 "Hatchback",
                 "Manual",
                 user1,
-                300,
-                50.4,
-                700,
-                300);
+                10.3,
+                "normal",
+                400,
+                70,
+                30);
         userRepository.save(user1);
         repository.save(car);
-
         // When
-        boolean expected = repository.existsById(car.getCarId());
-
         // Then
-        assertThat(expected).isTrue();
+        assertEquals(1, car.getCarId());
     }
 }
