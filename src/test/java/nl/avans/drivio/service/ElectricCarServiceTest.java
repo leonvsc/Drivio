@@ -6,7 +6,7 @@ import nl.avans.drivio.model.ElectricCar;
 import nl.avans.drivio.model.Password;
 import nl.avans.drivio.model.User;
 import nl.avans.drivio.repository.IElectricCarRepository;
-import nl.avans.drivio.repository.UserRepository;
+import nl.avans.drivio.repository.IUserRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ class ElectricCarServiceTest {
     private IElectricCarRepository repository;
 
     @Autowired
-    private UserRepository userRepository;
+    private IUserRepository userRepository;
 
     @AfterEach
     void tearDown() {

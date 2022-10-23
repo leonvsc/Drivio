@@ -1,7 +1,7 @@
 package nl.avans.drivio.service;
 
 import nl.avans.drivio.model.Statistic;
-import nl.avans.drivio.repository.StatisticRepository;
+import nl.avans.drivio.repository.IStatisticRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +11,11 @@ import java.util.Optional;
 @Service
 public class StatisticService {
 
-    private final StatisticRepository StatisticRepository;
+    private final IStatisticRepository StatisticRepository;
 
 
     @Autowired
-    public StatisticService(StatisticRepository statisticRepository) {
+    public StatisticService(IStatisticRepository statisticRepository) {
         StatisticRepository = statisticRepository;
     }
 

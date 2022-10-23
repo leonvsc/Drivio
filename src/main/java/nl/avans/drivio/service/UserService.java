@@ -2,7 +2,7 @@ package nl.avans.drivio.service;
 
 
 import nl.avans.drivio.model.User;
-import nl.avans.drivio.repository.UserRepository;
+import nl.avans.drivio.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +12,10 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+    private final IUserRepository userRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
