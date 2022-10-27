@@ -1,7 +1,7 @@
 package nl.avans.drivio.service;
 
 import nl.avans.drivio.model.Advertisement;
-import nl.avans.drivio.repository.IAdvertisementRepository;
+import nl.avans.drivio.repository.AdvertisementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +11,10 @@ import java.util.Optional;
 @Service
 public class AdvertisementService {
 
-    private final IAdvertisementRepository AdvertisementRepository;
+    private final AdvertisementRepository AdvertisementRepository;
 
     @Autowired
-    public AdvertisementService(IAdvertisementRepository advertisementRepository) {
+    public AdvertisementService(AdvertisementRepository advertisementRepository) {
         AdvertisementRepository = advertisementRepository;
     }
 

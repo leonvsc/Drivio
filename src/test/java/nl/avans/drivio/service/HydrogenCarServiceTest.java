@@ -3,8 +3,8 @@ package nl.avans.drivio.service;
 import nl.avans.drivio.model.HydrogenCar;
 import nl.avans.drivio.model.Password;
 import nl.avans.drivio.model.User;
-import nl.avans.drivio.repository.IHydrogenCarRepository;
-import nl.avans.drivio.repository.IUserRepository;
+import nl.avans.drivio.repository.HydrogenCarRepository;
+import nl.avans.drivio.repository.UserRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +18,9 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @TestPropertySource(locations = "classpath:application-test.properties")
 class HydrogenCarServiceTest {
     @Autowired
-    private IHydrogenCarRepository repository;
+    private HydrogenCarRepository repository;
     @Autowired
-    private IUserRepository userRepository;
+    private UserRepository userRepository;
 
     @AfterEach
     void tearDown() {

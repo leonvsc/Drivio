@@ -4,8 +4,8 @@ package nl.avans.drivio.service;
 import nl.avans.drivio.model.ElectricCar;
 import nl.avans.drivio.model.Password;
 import nl.avans.drivio.model.User;
-import nl.avans.drivio.repository.IElectricCarRepository;
-import nl.avans.drivio.repository.IUserRepository;
+import nl.avans.drivio.repository.ElectricCarRepository;
+import nl.avans.drivio.repository.UserRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +19,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestPropertySource(locations = "classpath:application-test.properties")
 class ElectricCarServiceTest {
     @Autowired
-    private IElectricCarRepository repository;
+    private ElectricCarRepository repository;
 
     @Autowired
-    private IUserRepository userRepository;
+    private UserRepository userRepository;
 
     @AfterEach
     void tearDown() {

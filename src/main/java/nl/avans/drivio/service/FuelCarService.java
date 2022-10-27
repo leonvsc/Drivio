@@ -1,7 +1,7 @@
 package nl.avans.drivio.service;
 
 import nl.avans.drivio.model.FuelCar;
-import nl.avans.drivio.repository.IFuelCarRepository;
+import nl.avans.drivio.repository.FuelCarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +11,10 @@ import java.util.Optional;
 @Service
 public class FuelCarService {
 
-    private final IFuelCarRepository FuelCarRepository;
+    private final FuelCarRepository FuelCarRepository;
 
     @Autowired
-    public FuelCarService(IFuelCarRepository fuelCarData) {
+    public FuelCarService(FuelCarRepository fuelCarData) {
         this.FuelCarRepository = fuelCarData;
     }
 

@@ -2,7 +2,7 @@ package nl.avans.drivio.controller;
 
 import nl.avans.drivio.model.Password;
 import nl.avans.drivio.model.User;
-import nl.avans.drivio.repository.IUserRepository;
+import nl.avans.drivio.repository.UserRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 class UserControllerTest {
 
     @Autowired
-    private IUserRepository repository;
+    private UserRepository repository;
 
     @AfterEach
     void tearDown() {
