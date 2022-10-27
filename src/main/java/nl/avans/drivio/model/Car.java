@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 // MappedSuperclass because of the inheritance
 @MappedSuperclass
-public class Car {
+public abstract class Car {
     // Generates an ID on auto mode, which generates an ID over the whole app
     @Id
     @GeneratedValue(
