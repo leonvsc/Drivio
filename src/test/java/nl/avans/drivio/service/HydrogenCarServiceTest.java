@@ -9,6 +9,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.geo.Point;
 import org.springframework.test.context.TestPropertySource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -49,6 +50,8 @@ class HydrogenCarServiceTest {
                 "Hatchback",
                 "Manual",
                 user1,
+                38.5576,
+                -121.5209,
                 300,
                 50.4,
                 700,

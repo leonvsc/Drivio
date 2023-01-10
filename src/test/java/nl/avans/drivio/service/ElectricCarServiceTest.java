@@ -10,6 +10,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.geo.Point;
 import org.springframework.test.context.TestPropertySource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -51,6 +52,8 @@ class ElectricCarServiceTest {
                 "Hatchback",
                 "Manual",
                 user1,
+                38.5611,
+                -121.50158,
                 10.3,
                 "normal",
                 400,

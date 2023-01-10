@@ -1,5 +1,7 @@
 package nl.avans.drivio.model;
 
+import org.springframework.data.geo.Point;
+
 import javax.persistence.*;
 
 // MappedSuperclass because of the inheritance
@@ -18,6 +20,8 @@ public abstract class Car {
     private String numberPlate;
     private String carType;
     private String gearBox;
+    private double latitude;
+    private double longitude;
     // Joins the column user_id to the car tables
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -26,7 +30,7 @@ public abstract class Car {
     public Car() {
     }
 
-    public Car(String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user) {
+    public Car(String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double latitude, double longitude) {
         this.brand = brand;
         this.model = model;
         this.fuelType = fuelType;
@@ -35,6 +39,8 @@ public abstract class Car {
         this.carType = carType;
         this.gearBox = gearBox;
         this.user = user;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
     public int getCarId() {
         return carId;
@@ -108,17 +114,35 @@ public abstract class Car {
         this.user = user;
     }
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
-                "CarId=" + carId +
-                ", Brand='" + brand + '\'' +
-                ", Model='" + model + '\'' +
-                ", FuelType='" + fuelType + '\'' +
-                ", BuildYear=" + buildYear +
-                ", NumberPlate='" + numberPlate + '\'' +
-                ", CarType='" + carType + '\'' +
-                ", GearBox='" + gearBox + '\'' +
+                "carId=" + carId +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", fuelType='" + fuelType + '\'' +
+                ", buildYear=" + buildYear +
+                ", numberPlate='" + numberPlate + '\'' +
+                ", carType='" + carType + '\'' +
+                ", gearBox='" + gearBox + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
                 ", user=" + user +
                 '}';
     }
