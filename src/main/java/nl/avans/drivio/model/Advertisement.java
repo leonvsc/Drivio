@@ -25,13 +25,18 @@ public class Advertisement {
     @JoinColumn
     private User user;
 
-    public Advertisement(String title, String description, double price, LocalDate startDate, LocalDate endDate, User user) {
+    @OneToOne
+    @JoinColumn
+    private ElectricCar electricCar;
+
+    public Advertisement(String title, String description, double price, LocalDate startDate, LocalDate endDate, User user, ElectricCar electricCar) {
         this.title = title;
         this.description = description;
         this.price = price;
         this.startDate = startDate;
         this.endDate = endDate;
         this.user = user;
+        this.electricCar = electricCar;
     }
 
     public Advertisement() {
@@ -94,16 +99,25 @@ public class Advertisement {
         this.user = User;
     }
 
+    public ElectricCar getElectricCar() {
+        return electricCar;
+    }
+
+    public void setElectricCar(ElectricCar electricCar) {
+        this.electricCar = electricCar;
+    }
+
     @Override
     public String toString() {
         return "Advertisement{" +
-                "AdvertisementId=" + advertisementId +
-                ", Title='" + title + '\'' +
-                ", Description='" + description + '\'' +
-                ", Price=" + price +
-                ", StartDate=" + startDate +
-                ", EndDate=" + endDate +
+                "advertisementId=" + advertisementId +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
                 ", user=" + user +
+                ", electricCar=" + electricCar +
                 '}';
     }
 }
