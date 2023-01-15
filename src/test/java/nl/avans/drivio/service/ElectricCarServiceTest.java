@@ -44,6 +44,7 @@ class ElectricCarServiceTest {
                 "niels-warnaar@live.nl",
                 password1);
         ElectricCar car = new ElectricCar(
+                null,
                 "Opel",
                 "Corsa",
                 "Fuelcar",

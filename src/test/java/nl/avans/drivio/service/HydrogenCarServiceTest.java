@@ -42,6 +42,7 @@ class HydrogenCarServiceTest {
                 "niels-warnaar@live.nl",
                 password1);
         HydrogenCar car = new HydrogenCar(
+                null,
                 "Opel",
                 "Corsa",
                 "Fuelcar",
