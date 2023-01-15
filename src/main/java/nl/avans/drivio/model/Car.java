@@ -13,6 +13,7 @@ public abstract class Car {
             strategy = GenerationType.AUTO
     )
     private int carId;
+    private String imageUrl;
     private String brand;
     private String model;
     private String fuelType;
@@ -30,7 +31,8 @@ public abstract class Car {
     public Car() {
     }
 
-    public Car(String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double latitude, double longitude) {
+    public Car(String imageUrl, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double latitude, double longitude) {
+        this.imageUrl = imageUrl;
         this.brand = brand;
         this.model = model;
         this.fuelType = fuelType;
@@ -48,6 +50,14 @@ public abstract class Car {
 
     public void setCarId(int carId) {
         this.carId = carId;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getBrand() {
@@ -134,6 +144,7 @@ public abstract class Car {
     public String toString() {
         return "Car{" +
                 "carId=" + carId +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", fuelType='" + fuelType + '\'' +

@@ -21,9 +21,9 @@ public class ElectricCar extends Car {
     @Column(name = "fast_charge_speed")
     private int fastChargeSpeed;
 
-    public ElectricCar(String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double latitude, double longitude, double whPerKm, String chargeConnection, int range, int chargeSpeed, int fastChargeSpeed) {
+    public ElectricCar(String imageUrl, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double latitude, double longitude, double whPerKm, String chargeConnection, int range, int chargeSpeed, int fastChargeSpeed) {
         // Gets the values from the car class
-        super(brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user, latitude, longitude);
+        super(imageUrl, brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user, latitude, longitude);
         this.whPerKm = whPerKm;
         this.chargeConnection = chargeConnection;
         this.carRange = range;

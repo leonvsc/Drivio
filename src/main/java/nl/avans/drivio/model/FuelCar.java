@@ -17,9 +17,9 @@ public class FuelCar extends Car{
     @Column(name = "car_range")
     private int carRange;
 
-    public FuelCar(String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double latitude, double longitude, double literPer100Km, int tankSize, int range) {
+    public FuelCar(String imageUrl, String brand, String model, String fuelType, int buildYear, String numberPlate, String carType, String gearBox, User user, double latitude, double longitude, double literPer100Km, int tankSize, int range) {
         // Gets the values from the car class
-        super(brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user, latitude, longitude);
+        super(imageUrl, brand, model, fuelType, buildYear, numberPlate, carType, gearBox, user, latitude, longitude);
         this.literPer100Km = literPer100Km;
         this.tankSize = tankSize;
         this.carRange = range;
